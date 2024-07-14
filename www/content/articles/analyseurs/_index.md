@@ -86,15 +86,16 @@ Tout digramme appartient à l’une des catégories suivantes :
 
 Les roulements intérieurs sont considérés comme les enchainements les plus
 confortables. Entre alternance de mains et roulements extérieurs, c’est plus une
-question de préférence personnelle.
+question de préférence personnelle. On identifie aussi deux types de mauvais
+roulements :
+
+- les roulements avec « ciseau », qui requièrent un changement de rangée
+  inconfortable, comme [C]{.kbd}[R]{.kbd} en Azerty ou Qwerty ;
+- les roulements avec extension, qui incluent une touche notée 4 ou plus.
 
 Les SFB sont les pires enchainements qui soient : une bonne optimisation
 cherchera à en avoir le moins possible, et fera en sorte de ne pas avoir de SFB
 ou SKB sous des auriclaires.
-
-En plus de ces catégories, on parle de « ciseau » quand un digramme de même main
-(roulement) requiert un changement de rangée inconfortable, comme
-[C]{.kbd}[R]{.kbd} en Azerty ou Qwerty.
 
 ### Les trigrammes
 
@@ -281,13 +282,13 @@ Les itérations de développement ont été facilitées par :
 On a développé notre propre analyseur pour trois raisons :
 
 - aucun analyseur existant ne prenait en compte les touches mortes, alors que
-  toutes les dispositions francophons en font usage — et c’est même un élément
+  toutes les dispositions francophones en font usage — et c’est même un élément
   fondamental d’Ergo‑L ;
 - on a voulu mettre en lumière certains défauts de la disposition au fur et à
   mesure de l’avancement du projet, et qui n’étaient pas toujours pris en compte
   par les autres analyseurs : part des extensions dans la charge des doigts,
   qualification des redirections, repérage des ciseaux…
-- c’était trivial et fun à faire. :-)
+- c’était simple et fun à faire. :-)
 
 Bien évidemment, on a vérifié que pour un même layout et un même corpus, notre
 analyseur donnait les mêmes résultats que les analyseurs existants. Et bien sûr,
@@ -316,6 +317,9 @@ développement d’Ergo‑L.
 
 Les autres analyseurs
 --------------------------------------------------------------------------------
+
+Notre analyseur n’est ni le premier, ni le dernier à être développé. Petit tour
+d’horizons des autres analyseurs parmi les plus connus et les plus utiles.
 
 ### CarpalX
 
