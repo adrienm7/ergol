@@ -9,10 +9,13 @@ jsScripts = ["/js/layout-analyzer.js", "/js/keebs.js"]
 footer = "quantifié par [x-keyboard](https://onedeadkey.github.io/x-keyboard)"
 +++
 
-<p> Voici l’analyseur qu’on a utilisé pour la mise au point d’Ergo‑L. Les
-  métriques sont explicitées dans le <a href="/ressources/glossaire">glossaire</a>,
-  et un <a href="/articles/analyse_et_optimisation">article détaillé</a> explique
-  plus précisément les principes d’analyse mis en œuvre. </p>
+<p>
+  Voici l’analyseur qu’on a utilisé pour la mise au point d’Ergo‑L. Les
+  métriques sont explicitées dans le
+  <a href="/ressources/glossaire">glossaire</a>, et un
+  <a href="/articles/analyse_et_optimisation">article détaillé</a> explique plus
+  précisément les principes d’analyse mis en œuvre.
+</p>
 
 <div class="keyboard">
   <input spellcheck="false" placeholder="" />
@@ -33,12 +36,16 @@ footer = "quantifié par [x-keyboard](https://onedeadkey.github.io/x-keyboard)"
       <option>en</option>
       <option selected>en+fr</option>
       <option>fr</option>
+      <option>Essais</option>
+      <option>Panache</option>
     </select>
   </form>
 
-  <p id="imprecise-data"> <strong>Attention :</strong> cette disposition
-    ne supporte pas de nombreux caractères du corpus sélectionné.
-    Les résultats ne sont proposés qu’à titre indicatif. </p>
+  <p id="imprecise-data">
+    <strong>Attention :</strong> cette disposition ne supporte pas de nombreux
+    caractères du corpus sélectionné. Les résultats ne sont proposés qu’à titre
+    indicatif.
+  </p>
 </div>
 
 <h2>Métriques</h2>
@@ -51,14 +58,15 @@ footer = "quantifié par [x-keyboard](https://onedeadkey.github.io/x-keyboard)"
 
 <section id="sfu">
   <h3>Bigrammes de même doigt/touche</h3>
-  <small>SFU : <span id="sfu-all"></span> / SKU : <span id="sku-all"></span></small>
+  <small
+    >SFU : <span id="sfu-all"></span> / SKU : <span id="sku-all"></span
+  ></small>
   <stats-canvas></stats-canvas>
 </section>
 
 <collapsable-table id="Achoppements">
-  <small>total :
-    <span id="unsupported-all"></span> /
-    <span id="sfu-all"></span> /
+  <small
+    >total : <span id="unsupported-all"></span> / <span id="sfu-all"></span> /
     <span id="extensions-all"></span> /
     <span id="scissors-all"></span>
   </small>
@@ -69,9 +77,8 @@ footer = "quantifié par [x-keyboard](https://onedeadkey.github.io/x-keyboard)"
 </collapsable-table>
 
 <collapsable-table id="Bigrammes">
-  <small>total :
-    <span id="sku-all"></span> /
-    <span id="inward-all"></span> /
+  <small
+    >total : <span id="sku-all"></span> / <span id="inward-all"></span> /
     <span id="outward-all"></span>
   </small>
   <table id="sku-digrams"></table>
@@ -80,9 +87,8 @@ footer = "quantifié par [x-keyboard](https://onedeadkey.github.io/x-keyboard)"
 </collapsable-table>
 
 <collapsable-table id="Trigrammes">
-  <small>total :
-    <span id="sks-all"></span> /
-    <span id="sfs-all"></span> /
+  <small
+    >total : <span id="sks-all"></span> / <span id="sfs-all"></span> /
     <span id="redirect-all"></span> /
     <span id="bad-redirect-all"></span>
   </small>
@@ -93,32 +99,58 @@ footer = "quantifié par [x-keyboard](https://onedeadkey.github.io/x-keyboard)"
 </collapsable-table>
 
 <h2>Évaluation</h2>
-<p><a
-  href="/articles/analyse_et_optimisation/#optimiser-pour-une-note-globale">On
-  ne propose pas de note globale.</a> Au contraire, on recommande d’évaluer une
-  disposition de clavier selon cinq critères principaux :</p>
+<p>
+  <a href="/articles/analyse_et_optimisation/#optimiser-pour-une-note-globale"
+    >On ne propose pas de note globale.</a
+  >
+  Au contraire, on recommande d’évaluer une disposition de clavier selon cinq
+  critères principaux :
+</p>
 <ul>
-  <li> la <i lang="en">heatmap</i> doit être centrée sur les positions confortables ; </li>
-  <li> la charge des doigts doit être bien répartie et épargner les auriculaires ; </li>
-  <li> le taux de bigrammes de même doigt (SFU) doit être le plus bas possible ; </li>
-  <li> le nombre de ciseaux et d’extensions (LSB) doit être le plus bas possible ; </li>
-  <li> le taux de mauvaises redirections doit être le plus bas possible. </li>
+  <li>
+    la <i lang="en">heatmap</i> doit être centrée sur les positions
+    confortables ;
+  </li>
+  <li>
+    la charge des doigts doit être bien répartie et épargner les auriculaires ;
+  </li>
+  <li>
+    le taux de bigrammes de même doigt (SFU) doit être le plus bas possible ;
+  </li>
+  <li>
+    le nombre de ciseaux et d’extensions (LSB) doit être le plus bas possible ;
+  </li>
+  <li>le taux de mauvaises redirections doit être le plus bas possible.</li>
 </ul>
-<p>Et du point de vue des Ergonautes, la qualité d’une disposition ne se juge
-  pas à la moyenne de ces critères, mais au plus gênant d’entre eux. C’est quand
-  un <i lang="en">layout</i> n’a pas de gros défaut qu’il est confortable à l’usage.</p>
+<p>
+  Et du point de vue des Ergonautes, la qualité d’une disposition ne se juge pas
+  à la moyenne de ces critères, mais au plus gênant d’entre eux. C’est quand un
+  <i lang="en">layout</i> n’a pas de gros défaut qu’il est confortable à
+  l’usage.
+</p>
 
 <h2>Mise en garde</h2>
-<p><a href="/articles/analyse_et_optimisation/#optimiser-façon-ergonaute">Ces
-  métriques ne sont pas des cibles d’optimisation !</a></p>
+<p>
+  <a href="/articles/analyse_et_optimisation/#optimiser-façon-ergonaute"
+    >Ces métriques ne sont pas des cibles d’optimisation !</a
+  >
+</p>
 
-<blockquote cite="https://fr.wikipedia.org/wiki/Loi_de_Goodhart"><p>
-  Lorsqu’une métrique devient un objectif, elle cesse d’être une bonne métrique.
-</p></blockquote>
-<p>— <a href="https://fr.wikipedia.org/wiki/Loi_de_Goodhart">loi de Goodhart</a></p>
+<blockquote cite="https://fr.wikipedia.org/wiki/Loi_de_Goodhart">
+  <p>
+    Lorsqu’une métrique devient un objectif, elle cesse d’être une bonne
+    métrique.
+  </p>
+</blockquote>
+<p>
+  — <a href="https://fr.wikipedia.org/wiki/Loi_de_Goodhart">loi de Goodhart</a>
+</p>
 
-<blockquote><p> <!-- Le Devoir - 4 juin 1997 -->
-  Les chiffres sont aux analystes ce que les lampadaires sont aux ivrognes :
-  ils fournissent bien plus un appui qu’un éclairage.
-</p></blockquote>
+<blockquote>
+  <p>
+    <!-- Le Devoir - 4 juin 1997 -->
+    Les chiffres sont aux analystes ce que les lampadaires sont aux ivrognes :
+    ils fournissent bien plus un appui qu’un éclairage.
+  </p>
+</blockquote>
 <p>— Jean Dion</p>
