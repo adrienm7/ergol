@@ -1,6 +1,7 @@
 name: optimot
 description: French Bépo-style layout
 url: https://optimot.fr
+version: 2
 geometry: ANSI
 
 full: |
@@ -9,7 +10,7 @@ full: |
   │ $ £ │ « “ │ » ” │ " „ │ -   │ + ± │ * × │ / \ │ = ≠ │ ( [ │ ) ] │ @   │ # ° ┃          ┃
   ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩
   ┃        ┃ À   │ J   │ O   │ É   │ B   │ F   │ D   │ L   │ ?   │ Q   │ X   │ Ç   │ Z     │
-  ┃ ↹      ┃   < │   > │   œ │  *´ │   — │     │   { │   } │ ’   │     │   | │     │       │
+  ┃ ↹      ┃   < │   > │   œ │     │   — │     │   { │   } │ ’   │     │   | │     │       │
   ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┷━━━━━━━┪
   ┃         ┃ A   │ I   │ E   │ U   │ ;   │ P   │ T   │ S   │ R   │ N   │ !   ┃            ┃
   ┃ ⇬       ┃   æ │     │     │   ù │ , – │     │   & │     │     │  *~ │*^*¨ ┃ ⏎          ┃
@@ -22,6 +23,6 @@ full: |
   ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 
 spacebar:
-  shift:       "\u202f"  # NARROW NO-BREAK SPACE
-  altgr:       "\u005f"  # LOW LINE
-  altgr_shift: "\u00a0"  # NO-BREAK SPACE
+  shift: "\u202f" # NARROW NO-BREAK SPACE
+  altgr: "\u005f" # LOW LINE
+  altgr_shift: "\u00a0" # NO-BREAK SPACE
