@@ -1,30 +1,32 @@
 all:
-	@find keymaps -type f \( -name '*.toml' -o -name '*.yaml' \) | while read -r file; do \
-		kalamine build "$$file" --out "$$(echo $$file | sed 's/....$$/json/')"; \
-	done
+	@powershell -Command "Get-ChildItem -Recurse -Path keymaps -Include *.toml, *.yaml | ForEach-Object { kalamine build $($_.FullName) --out $($_.FullName -replace '\.toml$$|\.yaml$$', '.json') }"
 
 watch:
-	@inotifywait -m -r keymaps -e close_write | while read -r path _action file; do \
-		case $$file in \
-			*.yaml | *.toml) echo kalamine build "$$path$$file" --out "$$path$$(basename "$${file%.*}").json";; \
-		esac \
-	done
+	@powershell -NoExit -Command "& { \
+		$watcher = New-Object System.IO.FileSystemWatcher; \
+		$watcher.Path = 'keymaps'; \
+		$watcher.Filter = '*.*'; \
+		$watcher.IncludeSubdirectories = $true; \
+		$watcher.EnableRaisingEvents = $true; \
+		Register-ObjectEvent $watcher Changed -SourceIdentifier FileChanged -Action { \
+			if ($_.FullPath -match '\\.toml$$|\\.yaml$$') { \
+				kalamine build $($_.FullPath) --out $($_.FullPath -replace '\\.toml$$|\\.yaml$$', '.json'); \
+			} \
+		}; \
+		Write-Host 'Watching for changes in keymaps directory. Press Ctrl+C to exit...'; \
+		while ($true) { Start-Sleep -Seconds 1; } \
+	}"
 
 dev:
 	pipx install kalamine
 
 clean:
-	rm -rf dist/*
-
-# the install/uninstall targets below require Kalamine v0.4.2+
+	@powershell -Command "Remove-Item -Recurse -Force dist\*"
 
 install:
-	@echo "Installer script for XKB (GNU/Linux)."
-	@echo
-	xkalamine install keymaps/ergol.toml
+	@echo "Installer script for Windows."
+	@kalamine install keymaps\ergol.toml
 
 uninstall:
-	@echo "Unistaller script for XKB (GNU/Linux)."
-	@echo
-	xkalamine remove fr/ergol
-	@echo
+	@echo "Uninstaller script for Windows."
+	@kalamine remove fr\ergol

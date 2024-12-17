@@ -1,6 +1,6 @@
 {
-  "name": "HyperTexte",
-  "description": "Disposition HyperTexte, pour une saisie plus rapide de texte.",
+  "name": "Ergopti",
+  "description": "Disposition ergonomique optimisée pour le français, l’anglais et le code",
   "geometry": "iso",
   "keymap": {
     "Digit1": [ "1" ],
